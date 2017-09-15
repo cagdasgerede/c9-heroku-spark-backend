@@ -1,1 +1,1 @@
-web:    java -cp "target/dependency/*":target/classes Main
+web:    java -cp "target/my-app-1.0-jar-with-dependencies.jar" Main
