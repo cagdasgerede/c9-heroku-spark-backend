@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+table.blueTable {
+  border: 1px solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+table.blueTable td, table.blueTable th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+}
+table.blueTable tbody td {
+  font-size: 13px;
+}
+table.blueTable tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.blueTable thead {
+  background: #1C6EA4;
+  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  border-bottom: 2px solid #444444;
+}
+table.blueTable thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border-left: 2px solid #D0E4F5;
+}
+table.blueTable thead th:first-child {
+  border-left: none;
+}
+
+table.blueTable tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #D0E4F5;
+  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  border-top: 2px solid #444444;
+}
+table.blueTable tfoot td {
+  font-size: 14px;
+}
+table.blueTable tfoot .links {
+  text-align: right;
+}
+table.blueTable tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+</style>
+
+</head>
+<body>
+
+<form action='/x' method='post' enctype='multipart/form-data'>
+    <fieldset>
+        <legend>Specify files to compare</legend>
+        <p>
+            <label for="file_1">
+                <span>Select file 1</span>
+            </label>
+            <input type='file' name='uploaded_file1' accept='.csv'>
+        </p>
+        
+        <p>
+            <label for="file_2">
+                <span>Select file 2</span>
+            </label>
+            <input type='file' name='uploaded_file2' accept='.csv'>
+        </p>
+
+        <p>
+            <button>Compare</button>
+        </p>
+    
+    </fieldset>
+</form>
+
+<form action='/y' method='post' enctype='multipart/form-data' style="margin-top: 20px">
+    <fieldset>
+        <legend>Comparison results</legend>
+        
+        <div style="border: 2px solid black;float: left; width: 45%"> <!-- http://jsfiddle.net/watson/Gsj27/3/ -->
+            <h1>file1.csv</h1>
+            <table>
+                <tr>
+                    <td>
+                        Total records
+                    </td>
+                    <td>
+                        450
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        Matching records
+                    </td>
+                    <td>
+                        442
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        Unmatched records
+                    </td>
+                    <td>
+                        8
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div style="border: 2px solid black; width: 45%; float: right" >
+            <h1>file2.csv</h1>
+            <table>
+                <tr>
+                    <td>
+                        Total records
+                    </td>
+                    <td>
+                        451
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        Matching records
+                    </td>
+                    <td>
+                        442
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        Unmatched records
+                    </td>
+                    <td>
+                        9
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <center>
+            <button  style="margin-top: 30px">Unmatched Report</button>
+        </center>
+    
+    </fieldset>
+</form>
+
+
+
+<fieldset style="margin-top: 20px">
+        <legend>Unmatched report</legend>
+    
+    <table class="blueTable">
+    <thead>
+<tr>
+<th>file1.csv</th>
+<th></th>
+<th></th>
+<th>file2.csv</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+
+<thead>
+<tr>
+<th>Date</th>
+<th>Reference</th>
+<th>Amount</th>
+<th>Date</th>
+<th>Reference</th>
+<th>Amount</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td colspan="6">
+<div class="links"><a href="#">&laquo;</a> <a class="active" href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">&raquo;</a></div>
+</td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td>cell1_1</td><td>cell2_1</td><td>cell3_1</td><td>cell4_1</td><td>cell5_1</td><td>cell6_1</td></tr>
+<tr>
+<td>cell1_2</td><td>cell2_2</td><td>cell3_2</td><td>cell4_2</td><td>cell5_2</td><td>cell6_2</td></tr>
+<tr>
+<td>cell1_3</td><td>cell2_3</td><td>cell3_3</td><td>cell4_3</td><td>cell5_3</td><td>cell6_3</td></tr>
+<tr>
+<td>cell1_4</td><td>cell2_4</td><td>cell3_4</td><td>cell4_4</td><td>cell5_4</td><td>cell6_4</td></tr>
+<tr>
+<td>cell1_5</td><td>cell2_5</td><td>cell3_5</td><td>cell4_5</td><td>cell5_5</td><td>cell6_5</td></tr>
+<tr>
+<td>cell1_6</td><td>cell2_6</td><td>cell3_6</td><td>cell4_6</td><td>cell5_6</td><td>cell6_6</td></tr>
+</tbody>
+</tr>
+</table>
+
+</fieldset>        
+
+
+</body>
+</html>
