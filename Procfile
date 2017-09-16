@@ -1,1 +1,1 @@
-web:    java -cp "target/my-app-1.0-jar-with-dependencies.jar" Main
+web:    java -cp "target/my-app-1.0-jar-with-dependencies.jar" UploadExample
